@@ -1,13 +1,20 @@
+#Indendtation is important
+#app can be foo, sometimes see node or web
+#always restart if fail
+#build - select dir w/ docker file
+#mongo image is being built from dockerhub so we leave as 'image'
+#need to link app container to our mongo container
+
 version: '3'
 services:
-  app:
+  app: 
     container_name: docker-node-mongo
     restart: always
     build: .
     ports:
       - '80:3000'
     links:
-      - mongo
+    - mongo
   mongo:
     container_name: mongo
     image: mongo
